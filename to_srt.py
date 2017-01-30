@@ -341,8 +341,8 @@ class STL:
                 # if comment skip
                 if TTI['CF']:
                     continue
-                # hack for the faulty FAB subtitler output
-                if 'FABst' in TTI['TF']:
+                # discard blocks with user data
+                if TTI['EBN'] == 254:
                     continue
                 if not tci:
                     tci = self.__timecodeDecode(TTI['TCIh'], TTI['TCIm'], TTI['TCIs'], TTI['TCIf']) - self.startTime
